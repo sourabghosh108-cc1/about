@@ -28,8 +28,8 @@ export default function ProductsPage() {
       <section className="section">
         <div className="container">
           {/* Featured Product: Hind.com */}
-          <div className="card" style={{ padding: '48px', marginBottom: '48px', border: '2px solid #DCE6D7', boxShadow: 'var(--shadow-md)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '40px', alignItems: 'center' }}>
+          <div className="card card-resp-padding" style={{ marginBottom: '48px', border: '2px solid #DCE6D7', boxShadow: 'var(--shadow-md)' }}>
+            <div className="products-hero-grid">
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
                   <span className="badge badge-status-live">Live & Operational</span>
@@ -45,7 +45,7 @@ export default function ProductsPage() {
                   "A digital search and discovery project focused on accessible information and digital services." Hind.com was designed to cut through bloated, ad-heavy search layouts, delivering responsive information discovery for Indian users and the global internet.
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '28px' }}>
+                <div className="products-features-grid">
                   <div style={{ background: '#F5F8F2', padding: '14px', borderRadius: 'var(--radius-md)' }}>
                     <div style={{ fontWeight: 700, fontSize: '0.92rem', color: 'var(--color-forest)', marginBottom: '4px' }}>Accessible Interface</div>
                     <div style={{ fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>High-readability typography and lightweight HTML footprint.</div>

@@ -64,7 +64,7 @@ export default function LpTokensPage() {
           </div>
 
           {/* Campaign Parameters Table */}
-          <div className="card" style={{ padding: '36px', margin: '40px 0' }}>
+          <div className="card card-resp-padding" style={{ margin: '40px 0' }}>
             <h3 style={{ fontSize: '1.4rem', marginBottom: '18px' }}>Verified Crowdfunding Specifications</h3>
             <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.94rem' }}>

@@ -232,7 +232,7 @@ export default function HomePage() {
       {/* SECTION 3: FEATURED PRODUCT — HIND.COM */}
       <section className="section section-alt" style={{ borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', alignItems: 'center' }}>
+          <div className="featured-product-grid">
             <div>
               <div className="badge badge-green" style={{ marginBottom: '14px' }}>
                 Flagship Initiative
@@ -278,10 +278,9 @@ export default function HomePage() {
 
             {/* Visual representation of Hind.com */}
             <div>
-              <div style={{
+              <div className="featured-product-card card-resp-padding" style={{
                 background: 'linear-gradient(135deg, #123D2A 0%, #1A523A 100%)',
                 borderRadius: 'var(--radius-xl)',
-                padding: '40px',
                 color: '#fff',
                 boxShadow: 'var(--shadow-lg)',
                 border: '1px solid rgba(255,255,255,0.1)'

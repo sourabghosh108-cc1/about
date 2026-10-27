@@ -890,30 +890,73 @@
    ------------------------------------------------------------- */
 @media (max-width: 768px) {
   .lpc-hero-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
   }
+
   .lpc-hero-pineapple-wrap {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
+
+  .lpc-hero-desc {
+    font-size: 0.88rem;
+  }
+
   .lpc-portals-grid {
     grid-template-columns: 1fr;
   }
+
   .lpc-hud-bottom {
-    bottom: 12px;
-    padding: 4px;
+    bottom: 10px;
+    padding: 4px 6px;
     gap: 2px;
+    max-width: calc(100vw - 20px);
+    overflow-x: auto;
   }
+
   .lpc-scene-tab {
-    font-size: 0.65rem;
-    padding: 5px 8px;
+    font-size: 0.62rem;
+    padding: 5px 7px;
+    white-space: nowrap;
   }
+
   .lpc-hud-controls {
     display: none;
   }
+
   .lpc-manifesto-card,
   .lpc-cyber-panel {
-    padding: 24px 18px;
+    padding: 20px 14px;
+  }
+
+  .lpc-hud-top {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .lpc-hud-btn span {
+    display: none;
+  }
+
+  .lpc-scene-container {
+    padding: 72px 16px;
+  }
+
+  .lpc-terminal-box {
+    padding: 20px 16px;
+  }
+
+  .lpc-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .lpc-btn-primary,
+  .lpc-btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 }
 

@@ -256,7 +256,7 @@ export default function Navbar() {
               href="https://app.xdao.app/56/dao/0x4deaff5873536f7510d29da4fbc0621629d77fc1?tab=Info"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-lemon btn-sm"
+              className="btn btn-lemon btn-sm nav-cta-btn"
               title="Verified Lemon India DAO on XDAO"
             >
               <span>Explore the DAO</span>
@@ -277,38 +277,53 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Backdrop & Drawer */}
       {mobileMenuOpen && (
-        <div className="mobile-menu-drawer">
-          <NavLink to="/" className="mobile-menu-link">Home</NavLink>
-          <NavLink to="/about" className="mobile-menu-link">About</NavLink>
-          <NavLink to="/ecosystem" className="mobile-menu-link">Ecosystem Overview</NavLink>
-          <div className="mobile-submenu">
-            <a href="https://cyan-rosy-rho.vercel.app/Hind-main/index.html" target="_blank" rel="noopener noreferrer" className="mobile-menu-link" style={{ fontSize: '0.92rem' }}>
-              Hind.com Search <ExternalLink size={12} style={{ display: 'inline', marginLeft: 4 }} />
+        <>
+          <div
+            className="mobile-menu-backdrop"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="mobile-menu-drawer">
+            <NavLink to="/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
+            <NavLink to="/about" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>About</NavLink>
+            <NavLink to="/ecosystem" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Ecosystem Overview</NavLink>
+            <div className="mobile-submenu">
+              <a
+                href="https://cyan-rosy-rho.vercel.app/Hind-main/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-menu-link"
+                style={{ fontSize: '0.92rem' }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Hind.com Search <ExternalLink size={12} style={{ display: 'inline', marginLeft: 4 }} />
+              </a>
+            </div>
+            <NavLink to="/products" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Products</NavLink>
+            <NavLink to="/lp-tokens" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>LP Tokens (Crowdfunding)</NavLink>
+            <NavLink to="/lpc" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Lemon Pine Coin (LPC)</NavLink>
+            <NavLink to="/investor-relations" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Investor Relations</NavLink>
+            <NavLink to="/faq" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>FAQ</NavLink>
+            <NavLink to="/contact" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
+            <NavLink to="/privacy-policy" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Privacy Policy</NavLink>
+            <NavLink to="/license" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>License</NavLink>
+            <NavLink to="/terms" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Terms and Conditions</NavLink>
+            <NavLink to="/risk-disclosure" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Risk Disclosure</NavLink>
+
+            <a
+              href="https://app.xdao.app/56/dao/0x4deaff5873536f7510d29da4fbc0621629d77fc1?tab=Info"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-lemon"
+              style={{ marginTop: 10, justifyContent: 'center' }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Explore the DAO <ExternalLink size={16} />
             </a>
           </div>
-          <NavLink to="/products" className="mobile-menu-link">Products</NavLink>
-          <NavLink to="/lp-tokens" className="mobile-menu-link">LP Tokens (Crowdfunding)</NavLink>
-          <NavLink to="/lpc" className="mobile-menu-link">Lemon Pine Coin (LPC)</NavLink>
-          <NavLink to="/investor-relations" className="mobile-menu-link">Investor Relations</NavLink>
-          <NavLink to="/faq" className="mobile-menu-link">FAQ</NavLink>
-          <NavLink to="/contact" className="mobile-menu-link">Contact</NavLink>
-          <NavLink to="/privacy-policy" className="mobile-menu-link">Privacy Policy</NavLink>
-          <NavLink to="/license" className="mobile-menu-link">License</NavLink>
-          <NavLink to="/terms" className="mobile-menu-link">Terms and Conditions</NavLink>
-          <NavLink to="/risk-disclosure" className="mobile-menu-link">Risk Disclosure</NavLink>
-
-          <a
-            href="https://app.xdao.app/56/dao/0x4deaff5873536f7510d29da4fbc0621629d77fc1?tab=Info"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-lemon"
-            style={{ marginTop: 10, justifyContent: 'center' }}
-          >
-            Explore the DAO <ExternalLink size={16} />
-          </a>
-        </div>
+        </>
       )}
     </header>
   );

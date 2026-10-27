@@ -18,7 +18,7 @@ export default function ContractAddressBox({
 
   return (
     <div style={{ margin: '16px 0' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexWrap: 'wrap', gap: '8px' }}>
         <span style={{ fontSize: '0.82rem', fontWeight: 700, color: dark ? 'var(--color-lemon)' : 'var(--color-forest)', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <ShieldCheck size={16} color={dark ? 'var(--color-lemon)' : 'var(--color-primary)'} />
           {label} ({network})
@@ -35,7 +35,7 @@ export default function ContractAddressBox({
         )}
       </div>
       <div className={`contract-box ${dark ? 'dark' : ''}`}>
-        <span style={{ userSelect: 'all' }}>{address}</span>
+        <span className="contract-address-text" style={{ userSelect: 'all' }}>{address}</span>
         <button
           type="button"
           onClick={handleCopy}

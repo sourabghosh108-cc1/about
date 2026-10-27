@@ -44,7 +44,7 @@ export default function InvestorRelationsPage() {
             Lemon India DAO is a decentralized digital ecosystem and community organization—not a publicly listed corporation, licensed investment fund, or broker-dealer. Under XDAO's model, LP tokens represent an economic ownership stake in Lemon India DAO's financial assets, with financial participation linked directly to the DAO treasury according to the applicable LP accounting and configuration. In contrast, Lemon Pine Coin (LPC) is a separate cryptocurrency created by Lemon India DAO; holding LPC does not grant ownership of the DAO treasury. Specific economic rights remain subject to the DAO's actual configuration and governing terms.
           </NoticeBox>
 
-          <div className="card" style={{ padding: '36px', margin: '36px 0' }}>
+          <div className="card card-resp-padding" style={{ margin: '36px 0' }}>
             <h2 style={{ fontSize: '1.75rem', marginBottom: '14px' }}>Introduction to Ecosystem Funding</h2>
             <p style={{ fontSize: '1.02rem', lineHeight: 1.7, marginBottom: '16px' }}>
               Lemon India DAO relies on decentralized funding mechanisms to support software development, infrastructure hosting, security maintenance, and open technical research.
@@ -210,7 +210,7 @@ export default function InvestorRelationsPage() {
           </div>
 
           {/* Section 5: Financial Transparency */}
-          <div className="card" style={{ background: '#FAFBF7', padding: '40px', margin: '48px 0' }}>
+          <div className="card card-resp-padding" style={{ background: '#FAFBF7', margin: '48px 0' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
               <FileCheck2 size={26} color="var(--color-primary)" />
               <h2 style={{ fontSize: '1.75rem', margin: 0 }}>Financial Transparency & On-Chain Auditability</h2>
@@ -318,7 +318,7 @@ export default function InvestorRelationsPage() {
           </div>
 
           {/* Section 7: Contact */}
-          <div className="card" style={{ background: '#F4F7F1', padding: '36px', textAlign: 'center' }}>
+          <div className="card card-resp-padding" style={{ background: '#F4F7F1', textAlign: 'center' }}>
             <h3 style={{ fontSize: '1.4rem', marginBottom: '8px' }}>Investor & Governance Inquiries</h3>
             <p style={{ maxWidth: '600px', margin: '0 auto 20px', fontSize: '0.96rem' }}>
               For factual questions regarding participation parameters, verifiable documentation, or community updates, reach out directly.
