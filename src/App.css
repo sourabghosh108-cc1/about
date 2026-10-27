@@ -1,0 +1,6 @@
+/* App-level utility overlays */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

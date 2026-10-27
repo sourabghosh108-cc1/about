@@ -1,0 +1,932 @@
+/* =====================================================================
+   LPC CINEMATIC SCI-FI DIGITAL EXPERIENCE
+   Palette:
+     Black:          #000000, #060606, #0A0A0A
+     Pineapple Gold: #FFE600, #FFD700, #F5C518
+     Amber Glow:     #E5A910, #C48208, #FF9D00
+     Text:           #FFFFFF, #B0B0B0, #FFE600
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@300;400;600;700&display=swap');
+
+:root {
+  --lpc-black: #000000;
+  --lpc-bg-dark: #050505;
+  --lpc-bg-surface: #0c0c0c;
+  --lpc-bg-glass: rgba(12, 12, 12, 0.75);
+  --lpc-yellow: #FFE600;
+  --lpc-gold: #FFD700;
+  --lpc-amber: #F5A623;
+  --lpc-amber-dim: rgba(245, 166, 35, 0.2);
+  --lpc-text-white: #FFFFFF;
+  --lpc-text-muted: #8E9297;
+  --lpc-border: rgba(255, 230, 0, 0.22);
+  --lpc-border-bright: rgba(255, 230, 0, 0.65);
+  --lpc-glow: 0 0 25px rgba(255, 230, 0, 0.35);
+  --lpc-glow-strong: 0 0 50px rgba(255, 230, 0, 0.6);
+  --lpc-mono: 'JetBrains Mono', monospace;
+  --lpc-display: 'Space Grotesk', sans-serif;
+}
+
+/* Master Cinematic Container */
+.lpc-viewport {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--lpc-black);
+  color: var(--lpc-text-white);
+  font-family: var(--lpc-mono);
+  overflow: hidden;
+  z-index: 99999;
+  user-select: none;
+  perspective: 1200px;
+}
+
+/* CRT Scanline & Grain Overlay */
+.lpc-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.35) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.02),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.02)
+  );
+  background-size: 100% 3px, 6px 100%;
+  opacity: 0.75;
+}
+
+.lpc-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+/* -------------------------------------------------------------
+   OPENING TERMINAL SEQUENCE
+   ------------------------------------------------------------- */
+.lpc-intro-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  z-index: 800;
+  padding: 24px;
+}
+
+.lpc-terminal-box {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(8, 8, 8, 0.9);
+  border: 1px solid var(--lpc-border);
+  box-shadow: 0 0 40px rgba(255, 230, 0, 0.12);
+  border-radius: 4px;
+  padding: 32px;
+  position: relative;
+}
+
+.lpc-terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 230, 0, 0.15);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--lpc-amber);
+}
+
+.lpc-terminal-log {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 180px;
+}
+
+.lpc-log-line {
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  color: var(--lpc-yellow);
+  text-shadow: 0 0 8px rgba(255, 230, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lpc-log-line.dim {
+  color: #777;
+  text-shadow: none;
+}
+
+.lpc-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 17px;
+  background: var(--lpc-yellow);
+  box-shadow: 0 0 10px var(--lpc-yellow);
+  animation: lpcBlink 0.8s infinite;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.lpc-skip-btn {
+  position: absolute;
+  bottom: 40px;
+  background: transparent;
+  border: 1px solid rgba(255, 230, 0, 0.3);
+  color: var(--lpc-amber);
+  font-family: var(--lpc-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.lpc-skip-btn:hover {
+  background: rgba(255, 230, 0, 0.15);
+  border-color: var(--lpc-yellow);
+  color: var(--lpc-yellow);
+  box-shadow: var(--lpc-glow);
+}
+
+/* -------------------------------------------------------------
+   PINEAPPLE REVEAL SEQUENCE
+   ------------------------------------------------------------- */
+.lpc-reveal-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  z-index: 700;
+  animation: fadeIn 0.8s ease;
+}
+
+.lpc-reveal-orb {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lpc-reveal-halo {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 230, 0, 0.45);
+  animation: lpcSpin 20s linear infinite;
+  box-shadow: 0 0 50px rgba(255, 230, 0, 0.2);
+}
+
+.lpc-reveal-scanring {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  animation: lpcPulseRing 3s ease-out infinite;
+}
+
+.lpc-reveal-logo {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 35px rgba(255, 230, 0, 0.75));
+  animation: lpcLogoScale 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 2;
+}
+
+.lpc-reveal-text {
+  margin-top: 40px;
+  font-family: var(--lpc-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--lpc-yellow);
+  text-shadow: 0 0 15px rgba(255, 230, 0, 0.6);
+  opacity: 0;
+  animation: lpcFadeUp 1s 0.6s forwards;
+}
+
+/* -------------------------------------------------------------
+   SIGNATURE 3D SCREEN-FLIP TRANSITION
+   ------------------------------------------------------------- */
+.lpc-scene-viewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.lpc-scene-viewport.flipping-next {
+  transform: rotateY(-90deg) scale(0.92);
+}
+
+.lpc-scene-viewport.flipping-prev {
+  transform: rotateY(90deg) scale(0.92);
+}
+
+.lpc-scene-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 24px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 50;
+}
+
+/* -------------------------------------------------------------
+   MINIMAL SCI-FI HUD NAVIGATION
+   ------------------------------------------------------------- */
+.lpc-hud-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 950;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.lpc-hud-left,
+.lpc-hud-right {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lpc-hud-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.lpc-hud-mini-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px var(--lpc-yellow));
+}
+
+.lpc-hud-telemetry {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--lpc-text-muted);
+}
+
+.lpc-hud-telemetry span.active {
+  color: var(--lpc-yellow);
+}
+
+.lpc-hud-btn {
+  background: rgba(255, 230, 0, 0.05);
+  border: 1px solid rgba(255, 230, 0, 0.3);
+  color: var(--lpc-yellow);
+  font-family: var(--lpc-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.lpc-hud-btn:hover {
+  background: rgba(255, 230, 0, 0.2);
+  border-color: var(--lpc-yellow);
+  box-shadow: 0 0 15px rgba(255, 230, 0, 0.4);
+}
+
+/* Bottom Scene Switcher HUD */
+.lpc-hud-bottom {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(255, 230, 0, 0.25);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+  padding: 6px 10px;
+  border-radius: 4px;
+  z-index: 950;
+  backdrop-filter: blur(10px);
+}
+
+.lpc-scene-tab {
+  background: transparent;
+  border: none;
+  color: var(--lpc-text-muted);
+  font-family: var(--lpc-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.lpc-scene-tab.active {
+  background: var(--lpc-yellow);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(255, 230, 0, 0.6);
+}
+
+.lpc-scene-tab:hover:not(.active) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Corner Floating Controls */
+.lpc-hud-controls {
+  position: fixed;
+  right: 28px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 950;
+}
+
+.lpc-nav-arrow {
+  background: rgba(15, 15, 15, 0.8);
+  border: 1px solid rgba(255, 230, 0, 0.3);
+  color: var(--lpc-yellow);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.lpc-nav-arrow:hover:not(:disabled) {
+  background: var(--lpc-yellow);
+  color: #000;
+  box-shadow: var(--lpc-glow);
+}
+
+.lpc-nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* -------------------------------------------------------------
+   SCENE 1: THE COIN
+   ------------------------------------------------------------- */
+.lpc-hero-scene {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lpc-hero-pineapple-wrap {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 32px;
+}
+
+.lpc-hero-pineapple {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 45px rgba(255, 230, 0, 0.7));
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.lpc-hero-glimmer {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 230, 0, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  animation: lpcPulseRing 4s infinite;
+}
+
+.lpc-hero-title {
+  font-family: var(--lpc-display);
+  font-size: 3.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.lpc-hero-title .glow {
+  color: var(--lpc-yellow);
+  text-shadow: 0 0 30px rgba(255, 230, 0, 0.7);
+}
+
+.lpc-hero-ticker {
+  display: inline-block;
+  background: rgba(255, 230, 0, 0.1);
+  border: 1px solid var(--lpc-yellow);
+  color: var(--lpc-yellow);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 4px 18px;
+  border-radius: 2px;
+  margin-bottom: 22px;
+  box-shadow: 0 0 15px rgba(255, 230, 0, 0.25);
+}
+
+.lpc-hero-desc {
+  font-size: 1.15rem;
+  color: #C0C0C0;
+  line-height: 1.6;
+  max-width: 660px;
+  margin: 0 auto 36px;
+}
+
+.lpc-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lpc-btn-primary {
+  background: var(--lpc-yellow);
+  color: #000;
+  font-family: var(--lpc-mono);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  padding: 14px 28px;
+  border-radius: 2px;
+  border: 1px solid var(--lpc-yellow);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 20px rgba(255, 230, 0, 0.45);
+  transition: all 0.25s ease;
+}
+
+.lpc-btn-primary:hover {
+  background: #FFF;
+  border-color: #FFF;
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.lpc-btn-secondary {
+  background: transparent;
+  color: #FFF;
+  font-family: var(--lpc-mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  padding: 14px 28px;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.lpc-btn-secondary:hover {
+  border-color: var(--lpc-yellow);
+  color: var(--lpc-yellow);
+  background: rgba(255, 230, 0, 0.08);
+  box-shadow: 0 0 20px rgba(255, 230, 0, 0.25);
+}
+
+/* -------------------------------------------------------------
+   SCENE 2: PROTOCOL INFORMATION (TERMINAL HUD)
+   ------------------------------------------------------------- */
+.lpc-protocol-scene {
+  width: 100%;
+  max-width: 880px;
+}
+
+.lpc-cyber-panel {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--lpc-border);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  padding: 36px;
+  position: relative;
+}
+
+.lpc-cyber-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20px;
+  width: 60px;
+  height: 2px;
+  background: var(--lpc-yellow);
+  box-shadow: 0 0 8px var(--lpc-yellow);
+}
+
+.lpc-panel-title {
+  font-family: var(--lpc-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lpc-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 28px;
+}
+
+.lpc-spec-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lpc-spec-label {
+  padding: 14px 10px;
+  color: var(--lpc-amber);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  width: 32%;
+}
+
+.lpc-spec-val {
+  padding: 14px 10px;
+  color: #FFF;
+  font-size: 0.95rem;
+}
+
+.lpc-contract-hud {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 230, 0, 0.3);
+  padding: 18px 24px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lpc-contract-address {
+  font-family: var(--lpc-mono);
+  font-size: 0.92rem;
+  color: var(--lpc-yellow);
+  word-break: break-all;
+  text-shadow: 0 0 8px rgba(255, 230, 0, 0.4);
+}
+
+.lpc-copy-cyber-btn {
+  background: var(--lpc-yellow);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-family: var(--lpc-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.lpc-copy-cyber-btn:hover {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* -------------------------------------------------------------
+   SCENE 3: NETWORK (INTERACTIVE CANVAS GRID)
+   ------------------------------------------------------------- */
+.lpc-network-scene {
+  width: 100%;
+  max-width: 960px;
+  text-align: center;
+}
+
+.lpc-canvas-wrap {
+  width: 100%;
+  height: 440px;
+  background: #040404;
+  border: 1px solid var(--lpc-border);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lpc-canvas-element {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.lpc-canvas-overlay {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 0.72rem;
+  color: var(--lpc-amber);
+  letter-spacing: 0.15em;
+  text-align: left;
+  pointer-events: none;
+}
+
+.lpc-canvas-footer {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------
+   SCENE 4: EXPLORE PORTALS
+   ------------------------------------------------------------- */
+.lpc-explore-scene {
+  width: 100%;
+  max-width: 900px;
+}
+
+.lpc-portals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.lpc-portal-card {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--lpc-border);
+  padding: 32px;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.lpc-portal-card:hover {
+  border-color: var(--lpc-yellow);
+  box-shadow: 0 0 35px rgba(255, 230, 0, 0.25);
+  transform: translateY(-4px);
+}
+
+.lpc-portal-badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--lpc-amber);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.lpc-portal-title {
+  font-family: var(--lpc-display);
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lpc-portal-desc {
+  font-size: 0.92rem;
+  color: #A0A0A0;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1 0 auto;
+}
+
+.lpc-portal-link {
+  font-size: 0.82rem;
+  color: var(--lpc-yellow);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* -------------------------------------------------------------
+   SCENE 5: THE MANIFESTO
+   ------------------------------------------------------------- */
+.lpc-manifesto-scene {
+  width: 100%;
+  max-width: 860px;
+}
+
+.lpc-manifesto-card {
+  background: rgba(8, 8, 8, 0.9);
+  border: 1px solid var(--lpc-border);
+  border-radius: 4px;
+  padding: 44px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+.lpc-manifesto-header {
+  font-family: var(--lpc-display);
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 230, 0, 0.2);
+  padding-bottom: 16px;
+}
+
+.lpc-manifesto-header .accent {
+  color: var(--lpc-yellow);
+}
+
+.lpc-manifesto-body {
+  font-size: 1.05rem;
+  color: #C8C8C8;
+  line-height: 1.8;
+}
+
+.lpc-manifesto-body p {
+  margin-bottom: 20px;
+  color: #C8C8C8;
+}
+
+.lpc-manifesto-quote {
+  border-left: 3px solid var(--lpc-yellow);
+  padding-left: 20px;
+  margin: 28px 0;
+  font-size: 1.15rem;
+  color: var(--lpc-yellow);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px rgba(255, 230, 0, 0.3);
+}
+
+.lpc-manifesto-nav {
+  margin-top: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+}
+
+/* -------------------------------------------------------------
+   ANIMATION KEYFRAMES
+   ------------------------------------------------------------- */
+@keyframes lpcBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes lpcSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lpcPulseRing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+@keyframes lpcLogoScale {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: drop-shadow(0 0 60px rgba(255, 230, 0, 0.9));
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(255, 230, 0, 0.75));
+  }
+}
+
+@keyframes lpcFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVE DESIGN & ACCESSIBILITY
+   ------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .lpc-hero-title {
+    font-size: 2.2rem;
+  }
+  .lpc-hero-pineapple-wrap {
+    width: 180px;
+    height: 180px;
+  }
+  .lpc-portals-grid {
+    grid-template-columns: 1fr;
+  }
+  .lpc-hud-bottom {
+    bottom: 12px;
+    padding: 4px;
+    gap: 2px;
+  }
+  .lpc-scene-tab {
+    font-size: 0.65rem;
+    padding: 5px 8px;
+  }
+  .lpc-hud-controls {
+    display: none;
+  }
+  .lpc-manifesto-card,
+  .lpc-cyber-panel {
+    padding: 24px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lpc-scene-viewport {
+    transition: none !important;
+  }
+  .lpc-reveal-halo,
+  .lpc-reveal-scanring,
+  .lpc-reveal-logo {
+    animation: none !important;
+  }
+  .lpc-cursor {
+    animation: none !important;
+  }
+}
