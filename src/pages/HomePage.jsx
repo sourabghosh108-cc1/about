@@ -15,7 +15,14 @@ import {
   Compass,
   CheckCircle,
   HelpCircle,
-  Network
+  Network,
+  GraduationCap,
+  Trophy,
+  Gamepad2,
+  BookOpen,
+  Target,
+  Zap,
+  Award
 } from 'lucide-react';
 import ContractAddressBox from '../components/ContractAddressBox';
 import NoticeBox from '../components/NoticeBox';
@@ -318,6 +325,256 @@ export default function HomePage() {
                   Connecting users directly to reliable information without unnecessary tracking or algorithmic friction.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: VIDYAVERSE AI — WHY VIDYAVERSE EXISTS */}
+      <section className="vidyaverse-section">
+        <div className="vidyaverse-glow-1" />
+        <div className="vidyaverse-glow-2" />
+
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          {/* Top Split Layout: Narrative & Interactive Learning Opportunities */}
+          <div className="vidyaverse-split-grid">
+            {/* Left Column: Purpose, Problem, Mission & Belief */}
+            <div className="vidyaverse-narrative">
+              <div className="vidyaverse-eyebrow-wrap">
+                <Sparkles size={14} />
+                <span>WHY VIDYAVERSE EXISTS</span>
+              </div>
+
+              <h2 className="vidyaverse-headline">
+                Your Background Shouldn't <br />
+                <span>Define Your Potential.</span>
+              </h2>
+
+              <p>
+                Across India and around the world, millions of students have the ambition to achieve more but lack access to the educational resources, guidance, and opportunities they need.
+              </p>
+
+              <p>
+                Learning should not be a privilege reserved for those who can afford the best resources. Every learner deserves the opportunity to discover their potential.
+              </p>
+
+              <div className="vidyaverse-intro-card">
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'var(--color-lemon)', fontWeight: 700, fontSize: '0.85rem', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  <GraduationCap size={16} />
+                  <span>Introducing Vidyaverse AI</span>
+                </div>
+                <p>
+                  Vidyaverse AI is our effort to make learning a more engaging, interactive, and accessible experience. By combining AI-powered learning concepts, gamification, and diverse learning experiences, we are exploring new ways to help people learn beyond the limitations of traditional study methods.
+                </p>
+              </div>
+
+              <div className="vidyaverse-mission-card">
+                <div className="vidyaverse-mission-title">
+                  <Target size={16} />
+                  <span>Our Mission</span>
+                </div>
+                <p className="vidyaverse-mission-text">
+                  To make quality learning experiences more accessible and engaging, particularly for students from low-income families and underserved communities.
+                </p>
+              </div>
+
+              <div className="vidyaverse-belief-banner">
+                <span className="label">Our Core Belief</span>
+                <blockquote>
+                  "Where you begin should never determine how far you can go."
+                </blockquote>
+              </div>
+
+              <div className="vidyaverse-founder-line">
+                Our founder experienced similar educational challenges firsthand. That experience helped inspire the vision behind Vidyaverse AI, but the mission extends far beyond any one person's story. It is about the millions of learners who deserve better opportunities.
+              </div>
+
+              <div className="vidyaverse-actions">
+                <Link to="/vidyaverse" className="btn btn-lemon">
+                  <span>Explore Vidyaverse AI</span>
+                  <ArrowRight size={16} />
+                </Link>
+                <a
+                  href="https://vidyaverse-ai-study.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-lemon"
+                >
+                  <span>Launch Live Study App</span>
+                  <ExternalLink size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Visual & Interactive Representation of Learning Opportunities */}
+            <div>
+              <div className="vidyaverse-canvas">
+                <div className="vidyaverse-canvas-header">
+                  <div className="vidyaverse-canvas-dots">
+                    <span className="vidyaverse-canvas-dot" style={{ background: '#FF5F56' }} />
+                    <span className="vidyaverse-canvas-dot" style={{ background: '#FFBD2E' }} />
+                    <span className="vidyaverse-canvas-dot" style={{ background: '#27C93F' }} />
+                  </div>
+                  <span className="vidyaverse-canvas-tag">AI Learning Architecture</span>
+                </div>
+
+                <div style={{ marginBottom: 20 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', fontFamily: 'var(--font-display)' }}>
+                      Vidyaverse AI Studio
+                    </div>
+                    <span className="badge badge-status-live" style={{ fontSize: '0.72rem' }}>
+                      Active Web App
+                    </span>
+                  </div>
+                  <p style={{ fontSize: '0.86rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.5, margin: 0 }}>
+                    Gamified adaptive education engine designed to make deep concepts intuitive and universally accessible.
+                  </p>
+                </div>
+
+                {/* Simulated Interactive Prompt / Learning Terminal */}
+                <div className="vidyaverse-sim-terminal">
+                  <div className="vidyaverse-terminal-line">
+                    <span className="vidyaverse-terminal-prompt">user&gt;</span>
+                    <span>Explain neural networks simply with an interactive game quest</span>
+                  </div>
+                  <div className="vidyaverse-terminal-line" style={{ color: 'var(--color-lemon)', marginTop: 8 }}>
+                    <Zap size={14} style={{ marginTop: 2, flexShrink: 0 }} />
+                    <span>Vidyaverse AI: Generating visual node simulation + Level 1 Quest unlocked!</span>
+                  </div>
+                  <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 10 }}>
+                    <span className="vidyaverse-terminal-badge">Adaptive Difficulty</span>
+                    <span className="vidyaverse-terminal-badge" style={{ background: 'rgba(216,243,106,0.2)', color: 'var(--color-lemon)' }}>Gamified XP +150</span>
+                    <span className="vidyaverse-terminal-badge" style={{ background: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>Hexagon™ NPU Optimized</span>
+                  </div>
+                </div>
+
+                {/* 4 Feature Pillars */}
+                <div className="vidyaverse-feature-pills">
+                  <div className="vidyaverse-pill-card">
+                    <div className="vidyaverse-pill-icon">
+                      <Gamepad2 size={18} />
+                    </div>
+                    <div className="vidyaverse-pill-title">Gamified Quests</div>
+                    <p className="vidyaverse-pill-desc">
+                      Progressive milestones, curiosity streaks, and experiential challenges that sustain engagement.
+                    </p>
+                  </div>
+
+                  <div className="vidyaverse-pill-card">
+                    <div className="vidyaverse-pill-icon">
+                      <Cpu size={18} />
+                    </div>
+                    <div className="vidyaverse-pill-title">On-Device Edge AI</div>
+                    <p className="vidyaverse-pill-desc">
+                      Exploring NPU & edge models so learners in low-connectivity areas enjoy instantaneous responses.
+                    </p>
+                  </div>
+
+                  <div className="vidyaverse-pill-card">
+                    <div className="vidyaverse-pill-icon">
+                      <BookOpen size={18} />
+                    </div>
+                    <div className="vidyaverse-pill-title">Diverse Learning Modes</div>
+                    <p className="vidyaverse-pill-desc">
+                      Visual conceptual maps, interactive experiments, and multi-modal explanations tailored to every pace.
+                    </p>
+                  </div>
+
+                  <div className="vidyaverse-pill-card">
+                    <div className="vidyaverse-pill-icon">
+                      <Sparkles size={18} />
+                    </div>
+                    <div className="vidyaverse-pill-title">Uncompromising Access</div>
+                    <p className="vidyaverse-pill-desc">
+                      Built to remove financial and geographic boundaries from top-tier educational experiences.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
+                    vidyaverse-ai-study.vercel.app
+                  </span>
+                  <a
+                    href="https://vidyaverse-ai-study.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: '0.82rem', color: 'var(--color-lemon)', display: 'inline-flex', alignItems: 'center', gap: 4, fontWeight: 600 }}
+                  >
+                    Open Live Study Portal <ExternalLink size={12} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3: Project Journey and Achievements Strip */}
+          <div className="vidyaverse-achievements-wrap">
+            <div className="vidyaverse-achievements-header">
+              <div>
+                <h3 className="vidyaverse-achievements-title">
+                  <Award size={22} color="var(--color-lemon)" />
+                  Project Journey & <span>Innovation Milestones</span>
+                </h3>
+                <p className="vidyaverse-achievements-sub">
+                  Recognized across prestigious engineering, on-device AI, and social impact challenges
+                </p>
+              </div>
+              <span className="badge badge-lemon">
+                Milestones & Development
+              </span>
+            </div>
+
+            <div className="vidyaverse-achievements-grid">
+              {/* Milestone 1: Snapdragon AI Lab Qualcomm */}
+              <div className="achievement-card">
+                <div className="achievement-org">Qualcomm • Snapdragon®</div>
+                <h4 className="achievement-title">
+                  Snapdragon® AI Lab Build & Present Challenge
+                </h4>
+                <p className="achievement-desc">
+                  Selected participant engineering on-device AI experiences leveraging Hexagon™ NPU acceleration, Qualcomm AI Hub, and local machine intelligence for low-latency educational access.
+                </p>
+                <div className="achievement-meta">
+                  <Cpu size={14} color="var(--color-lemon)" />
+                  <span>On-Device AI & Hexagon™ NPU Technology</span>
+                </div>
+              </div>
+
+              {/* Milestone 2: IIT Bhubaneswar */}
+              <div className="achievement-card">
+                <div className="achievement-org">IIT Bhubaneswar • Tech Zephyr 4.0</div>
+                <h4 className="achievement-title">
+                  Hackathon Winner: Agentic AI
+                </h4>
+                <p className="achievement-desc">
+                  Awarded Winner in the Agentic AI Hackathon category focused on web, interface architecture, and autonomous learning agents that adapt dynamically to individual student comprehension.
+                </p>
+                <div className="achievement-meta">
+                  <Trophy size={14} color="var(--color-lemon)" />
+                  <span>Category Winner • Web & Agentic Design</span>
+                </div>
+              </div>
+
+              {/* Milestone 3: Kaggle & Google DeepMind */}
+              <div className="achievement-card">
+                <div className="achievement-org">Kaggle & Google DeepMind</div>
+                <h4 className="achievement-title">
+                  AI Agents: Intensive Vibe Coding Capstone
+                </h4>
+                <p className="achievement-desc">
+                  Selected participant in the Agents for Good track, demonstrating practical agentic workflows designed to empower underserved students and dismantle barriers to high-quality learning resources.
+                </p>
+                <div className="achievement-meta">
+                  <Sparkles size={14} color="var(--color-lemon)" />
+                  <span>Agents for Good Track • AI Capstone</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="achievement-disclaimer">
+              * Note: These initiatives and hackathon participations represent project development milestones in Vidyaverse AI's ongoing technical journey. Participation does not imply that Qualcomm, IIT Bhubaneswar, Kaggle, or Google DeepMind endorse, fund, own, or officially partner with Vidyaverse AI.
             </div>
           </div>
         </div>

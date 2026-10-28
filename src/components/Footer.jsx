@@ -51,6 +51,12 @@ export default function Footer() {
               <li><Link to="/about">About Lemon India</Link></li>
               <li><Link to="/ecosystem">Ecosystem Overview</Link></li>
               <li><Link to="/products">Product Directory</Link></li>
+              <li><Link to="/vidyaverse">Vidyaverse AI</Link></li>
+              <li>
+                <a href="https://vidyaverse-ai-study.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  Vidyaverse App <ExternalLink size={12} />
+                </a>
+              </li>
               <li>
                 <a href="https://cyan-rosy-rho.vercel.app/Hind-main/index.html" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                   Hind.com Search <ExternalLink size={12} />

@@ -12,7 +12,8 @@ import {
   Sparkles,
   HelpCircle,
   ShieldCheck,
-  Mail
+  Mail,
+  GraduationCap
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -101,6 +102,13 @@ export default function Navbar() {
                     <div>
                       <div className="dropdown-item-title">Ecosystem Overview</div>
                       <div className="dropdown-item-desc">Structure, pillars, and initiatives</div>
+                    </div>
+                  </Link>
+                  <Link to="/vidyaverse" className="dropdown-item">
+                    <GraduationCap size={18} color="var(--color-primary)" style={{ marginTop: 2 }} />
+                    <div>
+                      <div className="dropdown-item-title">Vidyaverse AI</div>
+                      <div className="dropdown-item-desc">AI-powered gamified education</div>
                     </div>
                   </Link>
                   <a
@@ -289,6 +297,7 @@ export default function Navbar() {
             <NavLink to="/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
             <NavLink to="/about" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>About</NavLink>
             <NavLink to="/ecosystem" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Ecosystem Overview</NavLink>
+            <NavLink to="/vidyaverse" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Vidyaverse AI</NavLink>
             <div className="mobile-submenu">
               <a
                 href="https://cyan-rosy-rho.vercel.app/Hind-main/index.html"

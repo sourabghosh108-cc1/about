@@ -32,6 +32,19 @@ export default function EcosystemPage() {
       buttonText: 'Visit Hind.com'
     },
     {
+      id: 'vidyaverse',
+      title: 'Vidyaverse AI',
+      category: 'products',
+      status: 'Available Now',
+      statusType: 'live',
+      tagline: 'AI-Powered Gamified Education Platform',
+      description: 'An online educational platform combining artificial intelligence, gamification quests, and diverse learning modes to make quality education engaging and universally accessible.',
+      features: ['Adaptive AI study assistant', 'Gamified learning quests', 'On-device edge AI readiness', 'Educational accessibility focus'],
+      link: '/vidyaverse',
+      external: false,
+      buttonText: 'Explore Vidyaverse AI'
+    },
+    {
       id: 'xdao-hub',
       title: 'Lemon India DAO on XDAO',
       category: 'community',

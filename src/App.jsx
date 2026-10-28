@@ -18,6 +18,7 @@ import LpTokensPage from './pages/LpTokensPage';
 import LpcPage from './pages/LpcPage';
 import ContactPage from './pages/ContactPage';
 import FaqPage from './pages/FaqPage';
+import VidyaversePage from './pages/VidyaversePage';
 
 // 404 Fallback
 function NotFoundPage() {
@@ -53,6 +54,7 @@ function AppContent() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/ecosystem" element={<EcosystemPage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/vidyaverse" element={<VidyaversePage />} />
           <Route path="/investor-relations" element={<InvestorRelationsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/license" element={<LicensePage />} />

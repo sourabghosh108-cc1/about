@@ -63,6 +63,49 @@ export default function LpTokensPage() {
             </div>
           </div>
 
+          {/* Live XDAO Crowdfunding Widget Section */}
+          <div className="crowdfunding-widget-card">
+            <div className="crowdfunding-widget-header">
+              <div className="crowdfunding-widget-title">
+                <Layers size={20} color="var(--color-lemon)" />
+                <span>Live XDAO Crowdfunding Portal</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span className="badge badge-lemon">BNB Chain</span>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-mono)' }}>
+                  0x4deaff...7fc1
+                </span>
+              </div>
+            </div>
+
+            <div className="crowdfunding-widget-body">
+              <iframe
+                src="https://xdao.app/56/dao/0x4deaff5873536f7510d29da4fbc0621629d77fc1/widgets/crowdfunding"
+                title="Lemon India Incorporated Crowdfunding"
+                width="100%"
+                height="460px"
+                className="crowdfunding-iframe-frame"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="crowdfunding-widget-footer">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <ShieldAlert size={15} color="var(--color-primary)" />
+                <span>Economic Ownership Stake: Governed directly by XDAO smart contract parameters & LP accounting.</span>
+              </div>
+              <a
+                href="https://app.xdao.app/56/dao/0x4deaff5873536f7510d29da4fbc0621629d77fc1/modules/crowdfunding"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: 'var(--color-primary)', fontWeight: 600 }}
+              >
+                <span>Open Full XDAO Module</span>
+                <ExternalLink size={13} />
+              </a>
+            </div>
+          </div>
+
           {/* Campaign Parameters Table */}
           <div className="card card-resp-padding" style={{ margin: '40px 0' }}>
             <h3 style={{ fontSize: '1.4rem', marginBottom: '18px' }}>Verified Crowdfunding Specifications</h3>
