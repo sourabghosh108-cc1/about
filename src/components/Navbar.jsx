@@ -13,7 +13,8 @@ import {
   HelpCircle,
   ShieldCheck,
   Mail,
-  GraduationCap
+  GraduationCap,
+  Scale
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -168,6 +169,13 @@ export default function Navbar() {
 
               {tokensOpen && (
                 <div className="dropdown-menu">
+                  <Link to="/clearance" className="dropdown-item">
+                    <Scale size={18} color="var(--color-primary)" style={{ marginTop: 2 }} />
+                    <div>
+                      <div className="dropdown-item-title">Investment Clearance (GT &bull; LP)</div>
+                      <div className="dropdown-item-desc">Governance vs Investment clearance portal</div>
+                    </div>
+                  </Link>
                   <Link to="/lp-tokens" className="dropdown-item">
                     <Layers size={18} color="var(--color-primary)" style={{ marginTop: 2 }} />
                     <div>
@@ -311,6 +319,7 @@ export default function Navbar() {
               </a>
             </div>
             <NavLink to="/products" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Products</NavLink>
+            <NavLink to="/clearance" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Investment Clearance (GT &bull; LP)</NavLink>
             <NavLink to="/lp-tokens" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>LP Tokens (Crowdfunding)</NavLink>
             <NavLink to="/lpc" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Lemon Pine Coin (LPC)</NavLink>
             <NavLink to="/investor-relations" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Investor Relations</NavLink>

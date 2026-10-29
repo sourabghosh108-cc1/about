@@ -44,6 +44,36 @@ export default function InvestorRelationsPage() {
             Lemon India DAO is a decentralized digital ecosystem and community organization—not a publicly listed corporation, licensed investment fund, or broker-dealer. Under XDAO's model, LP tokens represent an economic ownership stake in Lemon India DAO's financial assets, with financial participation linked directly to the DAO treasury according to the applicable LP accounting and configuration. In contrast, Lemon Pine Coin (LPC) is a separate cryptocurrency created by Lemon India DAO; holding LPC does not grant ownership of the DAO treasury. Specific economic rights remain subject to the DAO's actual configuration and governing terms.
           </NoticeBox>
 
+          {/* Dedicated Portal Banner */}
+          <div style={{
+            background: 'linear-gradient(135deg, #0B1710 0%, #16281E 100%)',
+            border: '1px solid rgba(216, 243, 106, 0.35)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '22px 28px',
+            margin: '28px 0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 16
+          }}>
+            <div>
+              <span className="badge badge-lemon" style={{ marginBottom: 6 }}>
+                Clearance Protocol
+              </span>
+              <h3 style={{ color: '#fff', fontSize: '1.3rem', margin: '4px 0 6px' }}>
+                GT Governance &bull; LP Investment Clearance Portal
+              </h3>
+              <p style={{ color: 'rgba(255, 255, 255, 0.78)', fontSize: '0.92rem', margin: 0, maxWidth: 680 }}>
+                GT is strictly for governance access and is not for sale. LP tokens represent financial interests in the DAO treasury. Launch the futuristic portal for interactive feature analysis.
+              </p>
+            </div>
+            <Link to="/clearance" className="btn btn-lemon btn-sm">
+              <span>Launch Clearance Portal</span>
+              <ExternalLink size={14} />
+            </Link>
+          </div>
+
           <div className="card card-resp-padding" style={{ margin: '36px 0' }}>
             <h2 style={{ fontSize: '1.75rem', marginBottom: '14px' }}>Introduction to Ecosystem Funding</h2>
             <p style={{ fontSize: '1.02rem', lineHeight: 1.7, marginBottom: '16px' }}>

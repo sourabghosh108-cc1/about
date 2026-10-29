@@ -41,6 +41,38 @@ export default function LpTokensPage() {
             <strong>Economic Ownership Stake:</strong> Under XDAO's LP-token model, LP tokens represent an economic ownership stake in Lemon India DAO's financial assets. LP holders' financial participation is linked directly to the DAO treasury according to the applicable LP accounting and configuration. Specific economic rights remain subject to the DAO's actual smart-contract parameters and governing terms.
           </NoticeBox>
 
+          {/* Portal Navigation Banner */}
+          <div style={{
+            background: 'linear-gradient(135deg, #0B1710 0%, #16281E 100%)',
+            border: '1px solid rgba(216, 243, 106, 0.35)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '20px 24px',
+            margin: '28px 0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 16
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <div style={{ background: 'rgba(216, 243, 106, 0.15)', color: 'var(--color-lemon)', borderRadius: 'var(--radius-sm)', padding: 10 }}>
+                <Layers size={22} />
+              </div>
+              <div>
+                <h4 style={{ color: '#fff', fontSize: '1.15rem', margin: '0 0 4px' }}>
+                  GT Governance &bull; LP Investment Clearance Portal
+                </h4>
+                <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.88rem', margin: 0 }}>
+                  Explore the futuristic dual-pathway interface distinguishing governance rights from financial treasury participation.
+                </p>
+              </div>
+            </div>
+            <Link to="/clearance" className="btn btn-lemon btn-sm">
+              <span>Open Clearance Portal</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+
           <div className="grid-2" style={{ margin: '40px 0' }}>
             <div className="card">
               <h2 style={{ fontSize: '1.6rem', marginBottom: '14px' }}>What is the LP Token?</h2>

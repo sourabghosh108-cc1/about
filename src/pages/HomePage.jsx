@@ -768,6 +768,37 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Investment & Governance Clearance Portal Banner */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(216, 243, 106, 0.1) 0%, rgba(14, 26, 19, 0.95) 100%)',
+            border: '1px solid rgba(216, 243, 106, 0.35)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '28px 32px',
+            marginTop: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '20px',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.4)'
+          }}>
+            <div>
+              <span className="badge badge-lemon" style={{ marginBottom: 8 }}>
+                Protocol Clearance
+              </span>
+              <h3 style={{ color: '#fff', fontSize: '1.45rem', margin: '4px 0 8px' }}>
+                GT Governance vs LP Investment Portal
+              </h3>
+              <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: '0.96rem', margin: 0, maxWidth: 680, lineHeight: 1.6 }}>
+                GT is strictly for governance access and is not offered for sale. LP tokens represent financial interests in the DAO treasury under XDAO smart contracts. Inspect the complete dual-pathway architecture.
+              </p>
+            </div>
+            <Link to="/clearance" className="btn btn-lemon">
+              <span>Launch Clearance Portal</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -19,6 +19,7 @@ import LpcPage from './pages/LpcPage';
 import ContactPage from './pages/ContactPage';
 import FaqPage from './pages/FaqPage';
 import VidyaversePage from './pages/VidyaversePage';
+import ClearancePortalPage from './pages/ClearancePortalPage';
 
 // 404 Fallback
 function NotFoundPage() {
@@ -42,13 +43,16 @@ function NotFoundPage() {
 
 function AppContent() {
   const location = useLocation();
-  const isLpc = location.pathname === '/lpc';
+  const isCinematic = location.pathname === '/lpc' || 
+                      location.pathname === '/clearance' || 
+                      location.pathname === '/investments' || 
+                      location.pathname === '/portal';
 
   return (
     <div className="app-wrapper">
       <ScrollToTop />
-      {!isLpc && <Navbar />}
-      <main className={!isLpc ? "main-content" : ""}>
+      {!isCinematic && <Navbar />}
+      <main className={!isCinematic ? "main-content" : ""}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -56,6 +60,9 @@ function AppContent() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/vidyaverse" element={<VidyaversePage />} />
           <Route path="/investor-relations" element={<InvestorRelationsPage />} />
+          <Route path="/clearance" element={<ClearancePortalPage />} />
+          <Route path="/investments" element={<ClearancePortalPage />} />
+          <Route path="/portal" element={<ClearancePortalPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/license" element={<LicensePage />} />
           <Route path="/terms" element={<TermsPage />} />
@@ -67,7 +74,7 @@ function AppContent() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      {!isLpc && <Footer />}
+      {!isCinematic && <Footer />}
     </div>
   );
 }

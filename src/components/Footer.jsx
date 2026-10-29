@@ -89,6 +89,7 @@ export default function Footer() {
                   Crowdfunding <ExternalLink size={12} />
                 </a>
               </li>
+              <li><Link to="/clearance">Investment Clearance (GT &bull; LP)</Link></li>
               <li><Link to="/lp-tokens">LP Tokens Information</Link></li>
               <li><Link to="/lpc">Lemon Pine Coin (LPC)</Link></li>
             </ul>
